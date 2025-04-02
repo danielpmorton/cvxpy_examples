@@ -9,7 +9,7 @@ setup(
     name="cvxpy_examples",
     version="0.0.1",
     install_requires=[
-        "numpy",
+        "numpy<2",
         "matplotlib",
         "tqdm",
         "scipy",
@@ -17,6 +17,9 @@ setup(
         "clarabel",
         "ipython",
         "ecos",
+        "jax",
+        "jaxlib",
+        "pybullet",
     ],
     extras_require={"dev": ["pylint", "black"]},
     description="CVXPY examples",
@@ -25,4 +28,3 @@ setup(
     url="https://github.com/danielpmorton/cvxpy_examples",
     packages=find_packages(exclude=["artifacts"]),
 )
-
