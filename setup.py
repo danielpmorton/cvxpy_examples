@@ -16,6 +16,7 @@ setup(
         "cvxpy",
         "clarabel",
         "ipython",
+        "ecos",
     ],
     extras_require={"dev": ["pylint", "black"]},
     description="CVXPY examples",
