@@ -11,11 +11,9 @@ setup(
     install_requires=[
         "numpy<2",
         "matplotlib",
-        "tqdm",
         "scipy",
         "cvxpy",
         "clarabel",
-        "ipython",
         "ecos",
         "jax",
         "jaxlib",
