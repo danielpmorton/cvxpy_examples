@@ -8,20 +8,20 @@ import cvxpy as cp
 # Intuitively, we should have the optimal result be centered at (0, 0) and have a radius of 1
 # based on the construction of the polyhedron (regular polygon)
 
-m = 5 # Number of sides of the polyhedron
-n = 2 # 2D example
+m = 5  # Number of sides of the polyhedron
+n = 2  # 2D example
 thetas = np.linspace(0, 2 * np.pi, m)
-A = np.column_stack([np.cos(thetas), np.sin(thetas)]) # Plane normals
-b = np.ones(m) # Plane offsets from the origin
+A = np.column_stack([np.cos(thetas), np.sin(thetas)])  # Plane normals
+b = np.ones(m)  # Plane offsets from the origin
 
 # Construct our variables
-center = cp.Variable(n) # 2D variable
-radius = cp.Variable() # Scalar variable
+center = cp.Variable(n)  # 2D variable
+radius = cp.Variable()  # Scalar variable
 
 # Form the objective function and constraints
 # i.e. maximize the radius of the ball, subject to the ball being contained in the polyhedron
 objective = cp.Maximize(radius)
-constraints = [A @ center + radius * cp.norm(A, axis=1) <= b, radius >= 0]
+constraints = [A @ center + radius * cp.norm(A, axis=1) <= b]
 
 # Construct and solve the problem
 prob = cp.Problem(objective, constraints)

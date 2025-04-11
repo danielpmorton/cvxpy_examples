@@ -59,11 +59,7 @@ class InscribedBallProblem(OptimizationProblem):
 
     @property
     def constraints(self) -> list[cp.Expression]:
-        return [
-            self.A @ self.center + self.r * cp.norm(self.A, axis=1) <= self.b,
-            self.r >= 0,
-        ]
-
+        return [self.A @ self.center + self.r * cp.norm(self.A, axis=1) <= self.b]
 
     @property
     def optimal_center(self) -> np.ndarray:
@@ -92,4 +88,3 @@ class InscribedBallProblem(OptimizationProblem):
         if new_center.shape != self.center.shape:
             raise ValueError("Shape mismatch, cannot update the parameter")
         self.center.value = new_center
-
